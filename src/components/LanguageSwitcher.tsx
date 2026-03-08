@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from '@docusaurus/router';
+import { useLocation, useHistory } from '@docusaurus/router';
 import styles from './LanguageSwitcher.module.css';
 
 interface Language {
@@ -16,11 +16,12 @@ const languages: Language[] = [
 export default function LanguageSwitcher(): JSX.Element {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const history = useHistory();
 
   const getCurrentLanguage = (): Language => {
     const pathSegments = location.pathname.split('/').filter(Boolean);
     const firstSegment = pathSegments[0];
-    
+
     const lang = languages.find(l => l.code === firstSegment);
     return lang || languages[0]; // Default to English
   };
@@ -28,14 +29,9 @@ export default function LanguageSwitcher(): JSX.Element {
   const currentLanguage = getCurrentLanguage();
 
   const handleLanguageChange = (langCode: string) => {
-    // Always redirect to the home page of the selected language
-    if (langCode === 'en') {
-      // Remove language prefix for English (default)
-      window.location.href = '/';
-    } else {
-      // Add language prefix for other languages
-      window.location.href = `/${langCode}/`;
-    }
+    // Navigate to the home page of the selected language
+    const targetPath = langCode === 'en' ? '/' : `/${langCode}/`;
+    history.push(targetPath);
     setIsOpen(false);
   };
 

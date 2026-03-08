@@ -183,9 +183,9 @@ const config: Config = {
       '@docusaurus/plugin-content-docs',
       {
         id: 'whitepaper-pt',
-        path: 'whitepaper-pt',
+        path: 'translations/pt/whitepaper',
         routeBasePath: 'pt/whitepaper',
-        sidebarPath: './sidebars/whitepaper-pt.ts',
+        sidebarPath: './translations/pt/whitepaper/sidebar.ts',
       },
     ]
   ],
@@ -200,7 +200,7 @@ const config: Config = {
         indexBlog: false,
         indexPages: false,
         docsRouteBasePath: ["whitepaper", "for-investors", "for-builders", "for-merchants", "for-users", "for-community", "pt/whitepaper"],
-        docsDir: ["docs", "for-investors", "for-builders", "for-merchants", "for-users", "for-community", "whitepaper-pt"],
+        docsDir: ["docs", "for-investors", "for-builders", "for-merchants", "for-users", "for-community", "translations/pt/whitepaper"],
         searchResultLimits: 10,
         searchResultContextMaxLength: 50,
       },
