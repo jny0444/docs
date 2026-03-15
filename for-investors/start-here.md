@@ -14,7 +14,7 @@ This page covers the token thesis, economics, governance model, and investor FAQ
 - [Token details and allocation](/for-investors/token-details)
 - [MetaDAO sale](/for-investors/metadao-sale)
 - [Vesting schedules](/for-investors/vesting-schedules)
-- [Buy-and-burn](/for-investors/buy-and-burn)
+- [Treasury and token value](/for-investors/treasury-and-token-value)
 - [Staking mechanics](/for-investors/staking-mechanics)
 - [Token-holder governance](/for-investors/token-holder-governance)
 - [Progressive decentralization](/for-investors/progressive-decentralization)
