@@ -384,19 +384,32 @@ export default sidebars;
         # Build navbar items as dropdowns expanding into section index
         navbar_items = []
         for i, doc in enumerate(docs):
+            # Skip translated docs from navbar (handled by client-side hook)
+            if doc.get('skipGeneration', False):
+                continue
+
             label = doc['navbarLabel']
             generated_files = self._all_generated_files.get(doc['id'], [])
             
             if generated_files:
                 dropdown_items = []
+                is_skip = doc.get('skipGeneration', False)
                 for file_info in generated_files:
-                    doc_item = {
-                        'type': 'doc',
-                        'docId': file_info['doc_id'],
-                        'label': file_info['title'],
-                    }
-                    if i > 0:
-                        doc_item['docsPluginId'] = doc['id']
+                    if is_skip and 'url_slug' in file_info:
+                        # Pre-generated docs (e.g. translations) use href
+                        doc_item = {
+                            'href': f"/{doc['routeBasePath']}/{file_info['url_slug']}",
+                            'label': file_info['title'],
+                        }
+                    else:
+                        # Normal docs use type:'doc' for native active link
+                        doc_item = {
+                            'type': 'doc',
+                            'docId': file_info['doc_id'],
+                            'label': file_info['title'],
+                        }
+                        if i > 0:
+                            doc_item['docsPluginId'] = doc['id']
                     dropdown_items.append(doc_item)
                 
                 item = {
@@ -444,13 +457,15 @@ export default sidebars;
     ]""")
         if additional_docs:
             for doc in additional_docs:
+                # Use custom sidebar path if specified, otherwise use default
+                sidebar_path = doc.get('sidebarPath', f'./sidebars/{doc["id"]}.ts')
                 plugins.append(f"""[
       '@docusaurus/plugin-content-docs',
       {{
         id: '{doc["id"]}',
-        path: '{doc["id"]}',
+        path: '{doc["outputDir"]}',
         routeBasePath: '{doc["routeBasePath"]}',
-        sidebarPath: './sidebars/{doc["id"]}.ts',
+        sidebarPath: '{sidebar_path}',
       }},
     ]""")
         plugins_config = f"\n  plugins: [\n    {','.join(plugins)}\n  ]," if plugins else ""
@@ -578,6 +593,7 @@ const config: Config = {{
 
   clientModules: [
     './src/clientModules/tocAutoScroll.js',
+    './src/clientModules/uiTranslations.js',
   ],
 
   presets: [
@@ -734,9 +750,15 @@ export default config;
         all_warnings = []
         
         for doc_config in self.config['docs']:
-            source_path = self.root_dir / doc_config['source']
             doc_name = doc_config['navbarLabel']
-            
+
+            # Skip validation for pre-generated docs
+            if doc_config.get('skipGeneration', False):
+                print(f"  ⏭️  Skipping validation for {doc_name} (pre-generated)")
+                continue
+
+            source_path = self.root_dir / doc_config['source']
+
             if not source_path.exists():
                 all_errors.append(f"{doc_name}: Source file not found: {source_path}")
                 continue
@@ -804,7 +826,26 @@ export default config;
         for doc_config in self.config['docs']:
             print(f"\n📚 Processing: {doc_config['navbarLabel']}")
             print("-" * 40)
-            
+
+            # Check if this doc should skip generation (e.g., pre-generated translations)
+            if doc_config.get('skipGeneration', False):
+                print(f"  ⏭️  Skipping generation (pre-generated files)")
+                if 'preGeneratedFiles' in doc_config:
+                    output_dir = self.website_dir / doc_config['outputDir']
+                    enriched_files = []
+                    for file_info in doc_config['preGeneratedFiles']:
+                        enriched = dict(file_info)
+                        md_file = output_dir / f"{file_info['doc_id']}.md"
+                        if md_file.exists():
+                            content = md_file.read_text(encoding='utf-8')
+                            slug_match = re.search(r'^slug:\s*(.+)$', content, re.MULTILINE)
+                            if slug_match:
+                                enriched['url_slug'] = slug_match.group(1).strip()
+                        enriched_files.append(enriched)
+                    self._all_generated_files[doc_config['id']] = enriched_files
+                    print(f"  ✅ Loaded {len(enriched_files)} pre-generated files")
+                continue
+
             # Read source file
             source_path = self.root_dir / doc_config['source']
             if not source_path.exists():

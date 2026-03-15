@@ -114,7 +114,7 @@ const config: Config = {
 
   clientModules: [
     './src/clientModules/tocAutoScroll.js',
-    './src/clientModules/bielTranslations.js',
+    './src/clientModules/uiTranslations.js',
   ],
 
   presets: [
@@ -182,7 +182,7 @@ const config: Config = {
     ],[
       '@docusaurus/plugin-content-docs',
       {
-        id: 'whitepaper-pt',
+        id: 'translations-pt-whitepaper',
         path: 'translations/pt/whitepaper',
         routeBasePath: 'pt/whitepaper',
         sidebarPath: './translations/pt/whitepaper/sidebar.ts',
@@ -195,7 +195,7 @@ const config: Config = {
       require.resolve("@easyops-cn/docusaurus-search-local"),
       {
         hashed: true,
-        language: ["en", "pt"],
+        language: ["en"],
         indexDocs: true,
         indexBlog: false,
         indexPages: false,
@@ -374,6 +374,12 @@ const config: Config = {
                                 "type": "doc",
                                 "docId": "token-allocation",
                                 "label": "Token Allocation",
+                                "docsPluginId": "for-investors"
+                        },
+                        {
+                                "type": "doc",
+                                "docId": "past-investors",
+                                "label": "Past Investors",
                                 "docsPluginId": "for-investors"
                         },
                         {
