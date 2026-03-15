@@ -11,8 +11,8 @@ Team tokens follow the MetaDAO performance package model. Rather than time-based
 
 - 5 equal tranches of 1,548,000 tokens each
 - Tranches unlock at 2x, 4x, 8x, 16x, 32x ICO price
-- Minimum unlock time is 12 months from launch per tranche
-- Price measured via 1-month TWAP
+- Minimum unlock time: 12-month cliff, then 3-month TWAP measurement (15 months minimum)
+- Price measured via 3-month TWAP
 
 The team only benefits when the protocol grows.
 
