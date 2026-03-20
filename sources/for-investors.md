@@ -119,6 +119,149 @@ The $P2P token launches on Solana through a MetaDAO-style sale mechanism designe
 
 Existing protocol users receive a preferential allocation at the same valuation as all ICO investors, based on their XP on [p2p.foundation](https://p2p.foundation/).
 
+### Preferential allocation formula
+
+The following defines how commitments are converted into final allocations when the sale is oversubscribed and XP tiers apply multipliers. Non-XP participants still receive a pro-rata share; XP holders receive a boosted slice of the accepted raise, capped at what they committed.
+
+#### Variables
+
+| Symbol | Definition |
+|--------|------------|
+| **C** | Total USDC committed by all participants |
+| **F** | Funding cap accepted by founders (**F** ≤ **C**) |
+| **c_i** | USDC committed by participant *i* |
+| **T1, T2, T3** | Sets of participants in XP tiers 1 (highest), 2, and 3 |
+| **N** | Set of non-XP participants |
+| **m_1 = 3** | Tier 1 multiplier |
+| **m_2 = 2** | Tier 2 multiplier |
+| **m_3 = 1.5** | Tier 3 multiplier |
+
+#### Steps
+
+**Step 1 — Base pro-rata rate.** Compute the acceptance rate as if no preferences existed.
+
+```
+r = F / C
+```
+
+**Step 2 — Base allocation per participant.** Every participant receives a base slice proportional to their commitment.
+
+```
+base_i = c_i * r
+```
+
+**Step 3 — Apply XP multiplier.** For each XP holder in tier *t*, multiply their base allocation by that tier’s multiplier. Allocation cannot exceed what they committed.
+
+```
+pref_i = min(base_i * m_t, c_i)
+```
+
+Non-XP participants are unchanged at this step.
+
+**Step 4 — Total preferred allocation.** Sum all XP-preferred allocations.
+
+```
+A_pref = sum(pref_i)  for all i in T1 + T2 + T3
+```
+
+**Step 5 — Remaining pool for non-XP holders.** Subtract XP allocations from the funding cap.
+
+```
+A_remaining = F - A_pref
+```
+
+**Step 6 — Non-XP reallocation.** Non-XP holders split the remaining pool pro-rata by commitment.
+
+```
+C_N = sum(c_j)  for all j in N
+final_j = c_j * (A_remaining / C_N)
+```
+
+**Step 7 — Refunds.** Each participant receives the difference between commitment and final allocation.
+
+```
+refund_i = c_i - final_allocation_i
+```
+
+#### Worked example
+
+**Setup.** XP holders are a small fraction of the pool. Ten non-XP participants each commit $10,000. Three XP holders commit smaller amounts.
+
+| Participant | Commitment | XP tier | Multiplier |
+|---------------|------------|---------|------------|
+| Alice | $500 | Tier 1 | 3× |
+| Bob | $300 | Tier 2 | 2× |
+| Carol | $200 | Tier 3 | 1.5× |
+| D1 through D10 | $10,000 each | None | 1× |
+
+- **C** = $101,000 (total committed)
+- **F** = $10,000 (founders accept $10,000; the remainder is refunded)
+
+**Step 1 — Base rate.**
+
+```
+r = 10,000 / 101,000 = 0.0990 (9.9%)
+```
+
+**Step 2 — Base allocation.**
+
+| Participant | Commitment | base_i |
+|---------------|------------|--------|
+| Alice | $500 | $49.50 |
+| Bob | $300 | $29.70 |
+| Carol | $200 | $19.80 |
+| Each D | $10,000 | $990.10 |
+
+Without preferences, Alice would receive $49.50 allocated and $450.50 refunded.
+
+**Step 3 — Apply multipliers.**
+
+| Participant | base_i | Multiplier | pref_i |
+|---------------|--------|------------|--------|
+| Alice | $49.50 | 3× | min($148.51, $500) = **$148.51** |
+| Bob | $29.70 | 2× | min($59.41, $300) = **$59.41** |
+| Carol | $19.80 | 1.5× | min($29.70, $200) = **$29.70** |
+
+**Step 4 — Total preferred.**
+
+```
+A_pref = 148.51 + 59.41 + 29.70 = $237.62
+```
+
+**Step 5 — Remaining pool.**
+
+```
+A_remaining = 10,000 - 237.62 = $9,762.38
+```
+
+**Step 6 — Non-XP reallocation.**
+
+```
+C_N = 10 * 10,000 = $100,000
+Each D: 10,000 * (9,762.38 / 100,000) = $976.24
+```
+
+**Result.**
+
+| Participant | Final allocation | Refund |
+|-------------|------------------|--------|
+| Alice (T1) | $148.51 | $351.49 |
+| Bob (T2) | $59.41 | $240.59 |
+| Carol (T3) | $29.70 | $170.30 |
+| Each D (×10) | $976.24 | $9,023.76 |
+| **Total** | **$10,000.00** | **$91,000.00** |
+
+**Versus no preferences.**
+
+| Participant | Without preference | With preference | Difference |
+|---------------|-------------------|-----------------|------------|
+| Alice | $49.50 | $148.51 | +$99.01 (3×) |
+| Bob | $29.70 | $59.41 | +$29.71 (2×) |
+| Carol | $19.80 | $29.70 | +$9.90 (1.5×) |
+| Each D | $990.10 | $976.24 | −$13.86 |
+
+XP holders receive **$138.62** more in aggregate than they would without preferences. That amount is spread across ten non-XP participants, so each D is lower by **$13.86** (about **1.4%** of their base allocation). The effect on non-XP holders stays small when XP commitments are a small share of **C**.
+
 ---
 
 ## Vesting Schedules
