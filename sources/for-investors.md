@@ -4,11 +4,11 @@
 
 > **Before proceeding, please read the [Disclosures](/for-token-holders/disclosures).** $P2P is not available to US persons. Nothing in this section constitutes an offer of securities or investment advice.
 
-This page covers the token thesis, economics, governance model, and FAQs in one place.
+This page covers the token mechanics, governance model, and FAQs in one place.
 
 **Quick links to key sections.**
 
-- [Protocol thesis](/for-token-holders/protocol-thesis)
+- [Protocol overview](/for-token-holders/protocol-overview)
 - [Why the token exists](/for-token-holders/why-the-token-exists)
 - [Token details and allocation](/for-token-holders/token-details)
 - [MetaDAO sale](/for-token-holders/metadao-sale)
@@ -24,30 +24,30 @@ Also see [`/whitepaper`](/whitepaper/abstract) for protocol context and [`/for-b
 
 ---
 
-## Protocol Thesis
+## Protocol Overview
 
 - **Working core rails exist today.** Onramp/offramp, matching, disputes, and on-chain parameter controls are live and processing volume.
-- **Expansion path is clear.** Remittance and multi-currency tracks build on existing rails. They add corridors and users, not new trust assumptions.B2B SDK for third party developers to integrate P2P protocol rails is set to launch by june 2026
-- **Early-stage structure.** Compact launch supply with no insider tokens at TGE.
+- **Expansion path is clear.** Remittance and multi-currency tracks build on existing rails. They add corridors and users, not new trust assumptions. B2B SDK for third-party developers to integrate P2P Protocol rails is set to launch by June 2026.
+- **50% of supply circulates at launch.** No team or backer tokens unlock at TGE.
 - **Governance transition path.** Admin-operated today, with a documented multi-phase migration to token-governed control.
 - **Operational participation is explicit.** Staking, delegation, and treasury governance connect active participants to protocol operations.
-- **Sustained historical growth.** Over the last 16 months an average month-on-month growth of 27% is recorded, with 2 years of live transaction volume and $4M monthly volume recorded in February 2026. Protocol metrics can be tracked on-chain [here](https://dune.com/p2pme/latest). Past growth is not indicative of future performance.
-- **Fee-generating today.** $578K in annual fee run rate. Unit breakeven achieved. 20% of protocol fees are directed to the on-chain treasury, governed by token holders.
+- **Historical volume.** Over the last 16 months an average month-on-month growth of 27% is recorded, with 2 years of live transaction volume and $4M monthly volume recorded in February 2026. Protocol metrics can be tracked on-chain [here](https://dune.com/p2pme/latest). Past growth is not indicative of future performance.
+- **Fee-generating today.** The protocol collects fees on every transaction. 20% of protocol fees are directed to the on-chain treasury, governed by token holders. Current and historical fee data is verifiable on [Dune](https://dune.com/p2pme/latest).
 
 ---
 
 ## Why the Token Exists
 
-P2P on/off ramping is critical infrastructure for emerging markets. Millions of people depend on it to move between fiat and stablecoins every day. Infrastructure this important cannot remain under the control of a single operator. The token exists to decentralize ownership of this utility so that no single team, company, or jurisdiction can shut it down, censor it, or extract from it unfairly.
+P2P on/off ramping is critical infrastructure for emerging markets. Millions of people depend on it to move between fiat and stablecoins every day. Infrastructure this important cannot remain under the control of a single operator. The token exists to decentralize governance of this utility so that no single team, company, or jurisdiction can shut it down, censor it, or extract from it unfairly.
 
-`$P2P` is an **ownership token**. The most important parts of the protocol—intellectual property, treasury funds, and the ability to mint new tokens—are controlled by market-driven governance (futarchy), not by any single team or entity. Holders control protocol financials, govern operational parameters, direct treasury spending, and hold enforceable claim over protocol IP. If protocol resources or IP were ever misappropriated, token governance gives holders the mechanism to redirect control. This is real, unruggable ownership applied to revenue-generating infrastructure.
+`$P2P` is a **governance and utility token**. The protocol's key parameters, treasury funds, and the ability to mint new tokens are controlled by market-driven governance (futarchy), not by any single team or entity. Token holders govern operational parameters, direct treasury deployment, and participate in protocol operations through staking and delegation. Governance provides a mechanism to redirect control if protocol resources were ever mismanaged.
 
 The token enables four things.
 
 - **Decentralized governance.** Holders vote on fees, limits, merchant rules, and treasury allocation. No single operator controls these decisions.
-- **Trust staking ("Circles of Trust").** Token holders stake $P2P on merchant liquidity pools to attest to their trustworthiness. Active participants in a Circle may receive incentive allocations from the protocol's fee distribution contracts, conditional on the Circle's operational performance.
-- **Governance-directed treasury.** 20% of protocol fees flow to an on-chain treasury, planned to increase to 35% as the protocol matures—subject to MetaDAO futarchy governance. Token holders decide how these funds are deployed, including supply reduction through token retirement, ecosystem development, or liquidity operations. Treasury deployment is a governance-determined operational parameter, not a contractual right.
-- **Censorship resistance.** Decentralized ownership means no single point of failure. The protocol can survive regulatory pressure in any one jurisdiction because control is distributed globally among token holders.
+- **Trust staking ("Circles of Trust").** Token holders stake $P2P on merchant liquidity pools to attest to their trustworthiness. Delegators who actively monitor Circle performance, evaluate merchant conduct, and participate in dispute oversight may receive incentive allocations from the protocol's fee distribution contracts, conditional on the Circle's operational performance. Delegation requires ongoing engagement with the Circle's operations.
+- **Governance-directed treasury.** 20% of protocol fees flow to an on-chain treasury, planned to increase to 35% as the protocol matures, subject to MetaDAO futarchy governance. Token holders decide how these funds are deployed, including ecosystem development, liquidity operations, or other protocol-serving actions. Treasury deployment is a governance-determined operational parameter, not a contractual right. No individual token holder has a claim to treasury funds.
+- **Operational resilience.** Distributed governance means no single point of failure. The protocol can continue operating even if any single operator or jurisdiction becomes unavailable, because control is distributed globally among token holders.
 
 ---
 
@@ -55,7 +55,7 @@ The token enables four things.
 
 | Field | Value |
 |-------|-------|
-| Name | P2P Ownership and Governance Token |
+| Name | P2P Governance Token |
 | Ticker | $P2P |
 | Chain | Solana (SPL token) |
 | Total Supply | 25,800,000 (25.8M at launch) |
@@ -66,22 +66,22 @@ The token enables four things.
 
 ## Token Utility
 
-**Ownership.** $P2P is an ownership token. Protocol IP, treasury funds, and mint authority are all controlled by token holders through futarchy-based governance—not by any single team, foundation, or entity. This means the token carries real, enforceable ownership: if resources were ever misappropriated, governance provides the mechanism to redirect control. Decisions that affect token supply (minting) must pass through a decision-market governance mechanism, where participants stake real capital on whether a proposal increases or decreases token value. Proposals that the market predicts will harm value are automatically rejected.
+**Governance.** $P2P is a governance token. Protocol parameters, treasury deployment, and the ability to mint new tokens are controlled by token holders through futarchy-based governance, not by any single team, foundation, or entity. Governance provides a mechanism to redirect protocol control if resources were ever mismanaged. Decisions that affect token supply (minting) must pass through a decision-market governance mechanism, where participants stake real capital on whether a proposal benefits the protocol. Proposals that the market predicts will harm the protocol are automatically rejected.
 
-**Governance.** Token holders vote on protocol parameters such as fees, limits, merchant rules, oracle configs, and treasury allocation. One staked $P2P = one vote, with delegation.
+**Voting.** Token holders vote on protocol parameters such as fees, limits, merchant rules, oracle configs, and treasury allocation. One staked $P2P = one vote, with delegation.
 
-**Staking.** Circle Admins stake $P2P to operate merchant networks. Community members delegate $P2P to Circles to participate in protocol operations. Delegators who actively support a Circle's performance may receive incentive allocations from the fee distribution contracts. Merchants stake USDC as working capital. The staking design creates skin-in-the-game at every layer.
+**Staking.** Circle Admins stake $P2P to operate merchant networks. Delegators stake $P2P to Circles to participate in protocol operations: monitoring Circle performance, evaluating merchant conduct, and engaging in dispute oversight. Delegators who fulfill these operational duties may receive incentive allocations from the fee distribution contracts, conditional on the Circle's performance. Merchants stake USDC as working capital. The staking design creates skin-in-the-game at every layer.
 
-**Fee distribution.** Protocol revenue is routed across participants.
+**Fee routing.** Protocol fees are routed across participants based on their operational roles.
 
-| Recipient | Share of Revenue |
-|-----------|-----------------|
+| Recipient | Share of Fees |
+|-----------|--------------|
 | Merchants + Delegators | 53.33% |
 | Treasury | 20%, planned increase to 35% (governed via MetaDAO futarchy) |
 | Insurance Pools | 17.78% |
 | Circle Admins | 8.89% |
 
-No single party captures a majority of protocol fees. Merchants earn the most because they provide working capital and operational labor. Treasury contributions are governed by token holders via MetaDAO futarchy. Governance may direct these funds toward supply management, ecosystem development, liquidity operations, or other protocol-serving measures. Insurance pools exist so disputes don't become externalised costs.
+No single party captures a majority of protocol fees. Merchants receive the largest share because they provide working capital and operational labor. Treasury contributions are governed by token holders via MetaDAO futarchy. Governance may direct these funds toward ecosystem development, liquidity operations, or other protocol-serving measures. Insurance pools exist so disputes don't become externalised costs.
 
 ---
 
@@ -168,7 +168,7 @@ r = F / C
 base_i = c_i * r
 ```
 
-**Step 3 — Apply XP multiplier.** For each XP holder in tier *t*, multiply their base allocation by that tier’s multiplier. Allocation cannot exceed what they committed.
+**Step 3 — Apply XP multiplier.** For each XP holder in tier *t*, multiply their base allocation by that tier's multiplier. Allocation cannot exceed what they committed.
 
 ```
 pref_i = min(base_i * m_t, c_i)
@@ -218,10 +218,10 @@ refund_i = c_i - final_allocation_i
 **Step 1 — Base rate.**
 
 ```
-r = 10,000 / 101,000 = 0.0990 (9.9%)
+r = 10,000 / 101,000 = 0.099010 (9.9%)
 ```
 
-**Step 2 — Base allocation.**
+**Step 2 — Base allocation.** Note: intermediate values use full precision; displayed values are rounded.
 
 | Participant | Commitment | base_i |
 |---------------|------------|--------|
@@ -232,7 +232,7 @@ r = 10,000 / 101,000 = 0.0990 (9.9%)
 
 Without preferences, Alice would receive $49.50 allocated and $450.50 refunded.
 
-**Step 3 — Apply multipliers.**
+**Step 3 — Apply multipliers.** Multipliers are applied to full-precision base values, then rounded.
 
 | Participant | base_i | Multiplier | pref_i |
 |---------------|--------|------------|--------|
@@ -259,7 +259,7 @@ C_N = 10 * 10,000 = $100,000
 Each D: 10,000 * (9,762.38 / 100,000) = $976.24
 ```
 
-**Result.**
+**Result.** Totals may differ by small amounts due to rounding.
 
 | Participant | Final allocation | Refund |
 |-------------|------------------|--------|
@@ -267,7 +267,7 @@ Each D: 10,000 * (9,762.38 / 100,000) = $976.24
 | Bob (T2) | $59.41 | $240.59 |
 | Carol (T3) | $29.70 | $170.30 |
 | Each D (×10) | $976.24 | $9,023.76 |
-| **Total** | **$10,000.00** | **$91,000.00** |
+| **Total** | **~$10,000** | **~$91,000** |
 
 **Versus no preferences.**
 
@@ -278,7 +278,7 @@ Each D: 10,000 * (9,762.38 / 100,000) = $976.24
 | Carol | $19.80 | $29.70 | +$9.90 (1.5×) |
 | Each D | $990.10 | $976.24 | −$13.86 |
 
-XP holders receive **$138.62** more in aggregate than they would without preferences. That amount is spread across ten non-XP participants, so each D is lower by **$13.86** (about **1.4%** of their base allocation). The effect on non-XP holders stays small when XP commitments are a small share of **C**.
+XP holders receive approximately **$138.62** more in aggregate than they would without preferences. That amount is spread across ten non-XP participants, so each D is lower by approximately **$13.86** (about **1.4%** of their base allocation). The effect on non-XP holders stays small when XP commitments are a small share of **C**.
 
 ---
 
@@ -293,8 +293,6 @@ Team tokens follow the MetaDAO performance package model. Rather than time-based
 - Minimum unlock time: 12-month cliff, then 3-month TWAP measurement (15 months minimum)
 - Price measured via 3-month TWAP
 
-The team only benefits when the protocol grows.
-
 ### Backer Tokens (20% / 5.16M)
 
 - Months 0 through 12 are fully locked (cliff)
@@ -308,22 +306,22 @@ Vesting is enforced via on-chain vesting contracts. Locked tokens cannot be stak
 
 ## Treasury Operations
 
-20% of protocol fees are contributed to the treasury, planned to increase to 35% as the protocol matures—subject to MetaDAO futarchy governance.
+20% of protocol fees are contributed to the treasury, planned to increase to 35% as the protocol matures, subject to MetaDAO futarchy governance.
 
 - 20% of protocol fees flow to the on-chain treasury (planned increase to 35% via MetaDAO futarchy governance)
-- Via MetaDAO futarchy governance, token holders decide how treasury funds are deployed—including token retirement (supply reduction), ecosystem grants, liquidity operations, or other protocol-serving actions
-- Token retirement is one governance-approved mechanism: tokens purchased on the open market via DEX and sent to the zero address
-- First treasury allocation expected Q2 2026 (~3 months post-TGE)
+- Via MetaDAO futarchy governance, token holders decide how treasury funds are deployed, including ecosystem development, liquidity operations, or other protocol-serving actions
+- All treasury deployment requires governance approval and is subject to the futarchy mechanism
+- First treasury governance activation is planned for approximately 3 months post-TGE, subject to governance readiness
 
-Token holders govern how treasury funds are deployed. All treasury actions require governance approval through the futarchy mechanism. No treasury deployment is automatic or guaranteed.
+Token holders govern how treasury funds are deployed. All treasury actions require governance approval through the futarchy mechanism. No treasury deployment is automatic or guaranteed. No individual token holder has a claim to treasury funds.
 
 ---
 
 ## Staking Mechanics
 
-- **Circle Admins** stake $P2P to operate merchant networks. Their stake is slashable, and a portion of their rewards is locked as an insurance buffer.
+- **Circle Admins** stake $P2P to operate merchant networks. Their stake is slashable, and a portion of their allocations is locked as an insurance buffer.
 - **Merchants** stake USDC as working capital for order fulfillment. Their capacity is bounded by their stake.
-- **Delegators** stake $P2P to Circles to participate in protocol operations and may receive incentive allocations conditional on the Circle's performance. Only delegation to $P2P-denominated Circles grants governance voting rights.
+- **Delegators** stake $P2P to Circles and take on operational duties: monitoring Circle performance, evaluating merchant conduct, and participating in dispute oversight. Delegators who fulfill these duties may receive incentive allocations conditional on the Circle's performance. Only delegation to $P2P-denominated Circles grants governance voting rights.
 
 ---
 
@@ -366,7 +364,7 @@ The protocol design includes a three-tier insurance stack.
 
 **CAIP (Circle Admin Insurance Pool).** First-line coverage funded by a percentage of Circle volume plus slashed stakes.
 
-**CALR (Circle Admin Locked Rewards).** A portion of admin earnings locked in a rolling buffer.
+**CALR (Circle Admin Locked Rewards).** A portion of admin allocations locked in a rolling buffer.
 
 **PIP (Protocol Insurance Pool).** Backstop for systemic failures or depleted lower-tier pools.
 
@@ -374,7 +372,7 @@ The protocol design includes a three-tier insurance stack.
 
 ---
 
-## Financials and Estimates
+## Operational Cost Structure
 
 ### Monthly Operational Expenses
 
@@ -401,9 +399,9 @@ The protocol design includes a three-tier insurance stack.
 | Variable gas/cloud costs | 5% |
 | Monthly operational expense growth rate | 12% |
 
-### P&L Forecast ($'000s)
+### Operational Forecast ($'000s)
 
-*The following projections are internal operational planning estimates based on stated assumptions. They are not investment return projections, profit guarantees, or representations of expected token performance. Actual results may differ materially. These figures describe protocol-level economics (fee collection, operating costs) and do not represent or imply financial returns to token holders. Token value is not mechanically linked to protocol profitability.*
+*The following projections are internal operational planning estimates based on stated assumptions. They are not investment return projections, guarantees of any kind, or representations of expected token performance. Actual results may differ materially. These figures describe protocol-level economics (fee collection, operating costs) and do not represent or imply financial returns to token holders. Token value is not mechanically linked to protocol operations. Past growth is not indicative of future performance.*
 
 | | Apr 2026 | Jul 2026 | Oct 2026 | Jan 2027 | Apr 2027 | Jul 2027 |
 |---|---|---|---|---|---|---|
@@ -411,12 +409,12 @@ The protocol design includes a three-tier insurance stack.
 | Transaction fees | $81 | $179 | $392 | $862 | $1,893 | $4,159 |
 | Transaction cost | $49 | $107 | $235 | $517 | $1,136 | $2,495 |
 | Variable cost | $4 | $9 | $20 | $43 | $95 | $208 |
-| **Total COGS** | $53 | $116 | $255 | $560 | $1,230 | $2,703 |
-| **Gross profit** | $28 | $63 | $137 | $302 | $663 | $1,456 |
+| **Total COGS** | $53 | $116 | $255 | $560 | $1,231 | $2,703 |
+| **Net fee revenue** | $28 | $63 | $137 | $302 | $662 | $1,456 |
 | Operational expenses | $196 | $275 | $387 | $544 | $764 | $1,073 |
-| **Operating profit/(loss)** | **($168)** | **($213)** | **($250)** | **($242)** | **($101)** | **$383** |
+| **Operating surplus/(deficit)** | **($168)** | **($212)** | **($250)** | **($242)** | **($102)** | **$383** |
 
-The protocol's operational cost structure is designed to reach self-sustainability as volume scales. Fee collection is driven entirely by transaction volume on a working product, with no reliance on token emissions or inflationary incentives. These estimates are provided for operational transparency and should not be interpreted as investment return projections.
+These estimates are provided for operational transparency and should not be interpreted as investment return projections.
 
 ---
 
@@ -424,11 +422,7 @@ The protocol's operational cost structure is designed to reach self-sustainabili
 
 P2P Protocol envisions a multichain future with Solana as its hub chain.
 
-The protocol's smart contracts are live on Base today—chosen during the bootstrapping phase for low fees and fast finality. The $P2P token launches on Solana deliberately: building network effects and community in the Solana ecosystem is the precursor to deploying the protocol there. Once the protocol is live on Solana, it becomes the hub of a multichain architecture, with Base and future chains as supported spokes.
-
-### Why is the token launching on Solana if the protocol is on Base?
-
-The protocol is live on Base today. The token launches on Solana to build network effects ahead of deploying the protocol there. Solana is the planned hub of a multichain architecture.
+The protocol's smart contracts are live on Base today, chosen during the bootstrapping phase for low fees and fast finality. The $P2P token launches on Solana deliberately: building network effects and community in the Solana ecosystem is the precursor to deploying the protocol there. Once the protocol is live on Solana, it becomes the hub of a multichain architecture, with Base and future chains as supported spokes.
 
 ### Does chain choice lock the protocol?
 
@@ -444,7 +438,9 @@ Inline notes throughout the docs mark features planned for future releases. For 
 
 This section is provided for informational purposes to explain protocol mechanics. It does not constitute an offer of securities or investment advice. $P2P is not available to US persons. Nothing herein should be construed as a promise of financial return.
 
-The $P2P token provides governance rights and operational participation utility within the protocol, independently of any corporate entity. It carries no claim on foundation assets, no debt obligation, and no contractual right to revenue distributions or financial returns. Any incentive allocations received through protocol participation are conditional on active operational involvement and are determined by governance, not guaranteed. The token does not constitute a security, investment product, or financial instrument in any jurisdiction. Prospective participants should seek independent legal and financial advice. Value, if any, derives from protocol usage and network effects rather than any promise of returns.
+The $P2P token provides governance rights and operational participation utility within the protocol, independently of any corporate entity. It carries no claim on foundation assets, no debt obligation, and no contractual right to fee distributions, revenue distributions, or financial returns of any kind. Any incentive allocations received through protocol participation are conditional on active operational involvement, are determined by governance, and are not guaranteed. Fee routing within the protocol describes the operational mechanics of how the protocol distributes fees among active participants; it does not create an entitlement for token holders.
+
+The token does not constitute a security, investment product, or financial instrument in any jurisdiction. Prospective participants should seek independent legal and financial advice. Value, if any, derives from protocol usage and network effects rather than any promise of returns. Past protocol performance is not indicative of future results.
 
 ---
 
@@ -458,13 +454,13 @@ The protocol is live on Base today. The token launches on Solana to build networ
 
 P2P on/off ramping is essential financial infrastructure in emerging markets. Without a token, control over this infrastructure stays with a single operator who can change fees, censor users, or shut it down. The token transfers that control to the community.
 
-### Is this an ownership token?
+### Is this a governance token?
 
-Yes. This is protocol ownership, distinct from equity in a traditional company. The "Why the Token Exists" section above covers the full ownership thesis.
+Yes. $P2P confers governance rights over protocol parameters, treasury deployment, and protocol upgrades. It is distinct from equity in a traditional company. The "Why the Token Exists" section above covers the full governance thesis.
 
 ### How does the MetaDAO-style sale work?
 
-Users commit USDC during a 4-day window. **There is no bid wall**—clearing is pro-rata against the accepted cap, with refunds for any unallocated USDC. The ask is **$6M**; if commitments exceed that, excess is refunded. If total commitments are **above $80M** (and up to **$150M**), up to **$8M** is accepted at **$20.64M** FDV; if they are **above $150M**, up to **$10M** is accepted at **$25.8M** FDV. If oversubscribed at the active cap, allocations follow the pro-rata and XP-preference rules on the [MetaDAO sale](/for-token-holders/metadao-sale) page. Existing protocol users receive a preferential allocation at the same valuation as all public sale participants, based on their XP on [p2p.foundation](https://p2p.foundation/). No private rounds happen at TGE. The sale is the primary distribution event.
+Users commit USDC during a 4-day window. **There is no bid wall**, clearing is pro-rata against the accepted cap, with refunds for any unallocated USDC. The ask is **$6M**; if commitments exceed that, excess is refunded. If total commitments are **above $80M** (and up to **$150M**), up to **$8M** is accepted at **$20.64M** FDV; if they are **above $150M**, up to **$10M** is accepted at **$25.8M** FDV. If oversubscribed at the active cap, allocations follow the pro-rata and XP-preference rules on the [MetaDAO sale](/for-token-holders/metadao-sale) page. Existing protocol users receive a preferential allocation at the same valuation as all public sale participants, based on their XP on [p2p.foundation](https://p2p.foundation/). No private rounds happen at TGE. The sale is the primary distribution event.
 
 ### What unlocks at TGE?
 
@@ -472,8 +468,8 @@ Users commit USDC during a 4-day window. **There is no bid wall**—clearing is 
 
 ### How does the treasury work?
 
-20% of protocol fees flow to the on-chain treasury, planned to increase to 35% as the protocol matures—subject to MetaDAO futarchy governance. Token holders decide how to deploy these funds. Token retirement (supply reduction) is one governance-approved mechanism—tokens purchased on the open market and sent to the zero address. The treasury is funded by protocol fees from a working product. Treasury size scales with protocol usage. All deployment decisions are made through governance.
+20% of protocol fees flow to the on-chain treasury, planned to increase to 35% as the protocol matures, subject to MetaDAO futarchy governance. Token holders decide how to deploy these funds. All treasury deployment requires governance approval. The treasury is funded by protocol fees from a working product. No individual token holder has a claim to treasury funds. All deployment decisions are made through governance.
 
 ### Is supply fixed?
 
-Yes, fixed at launch (25.8M). Future issuance requires governance approval via futarchy. The protocol runs on transaction revenue, not token emissions.
+Yes, fixed at launch (25.8M). Future issuance requires governance approval via futarchy. The protocol runs on transaction fees, not token emissions.
