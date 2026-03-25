@@ -15,7 +15,7 @@ The P2P Foundation Ambassador Program ("The Liberation Network") is a community-
 - [Brand kit](/for-community/brand-kit)
 - [FAQ](/for-community/faq)
 
-Also see [`/whitepaper`](/whitepaper/abstract) for protocol context and [`/for-investors`](/for-investors/start-here) for the token thesis.
+Also see [`/whitepaper`](/whitepaper/abstract) for protocol context and [`/for-token-holders`](/for-token-holders/start-here) for the token thesis.
 
 ---
 
