@@ -35,31 +35,32 @@ const sidebars: SidebarsConfig = {
     },
     {
         "type": "category",
-        "label": "Para Investidores",
+        "label": "Para Detentores de Token",
         "collapsible": true,
         "collapsed": true,
         "link": {
             "type": "doc",
-            "id": "for-investors/start-here"
+            "id": "for-token-holders/start-here"
         },
         "items": [
-            "for-investors/investor-thesis",
-            "for-investors/why-the-token-exists",
-            "for-investors/token-details",
-            "for-investors/token-utility",
-            "for-investors/token-allocation",
-            "for-investors/past-investors",
-            "for-investors/metadao-sale",
-            "for-investors/vesting-schedules",
-            "for-investors/treasury-and-token-value",
-            "for-investors/staking-mechanics",
-            "for-investors/token-holder-governance",
-            "for-investors/progressive-decentralization",
-            "for-investors/insurance",
-            "for-investors/financials-and-estimates",
-            "for-investors/multichain-strategy",
-            "for-investors/disclosures",
-            "for-investors/faq"
+            "for-token-holders/protocol-overview",
+            "for-token-holders/why-the-token-exists",
+            "for-token-holders/token-details",
+            "for-token-holders/token-utility",
+            "for-token-holders/token-allocation",
+            "for-token-holders/past-backers",
+            "for-token-holders/metadao-sale",
+            "for-token-holders/vesting-schedules",
+            "for-token-holders/treasury-operations",
+            "for-token-holders/staking-mechanics",
+            "for-token-holders/token-holder-governance",
+            "for-token-holders/progressive-decentralization",
+            "for-token-holders/insurance",
+            "for-token-holders/operational-cost-structure",
+            "for-token-holders/multichain-strategy",
+            "for-token-holders/legal-documents",
+            "for-token-holders/disclosures",
+            "for-token-holders/faq"
         ]
     }
   ],
