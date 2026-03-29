@@ -16,12 +16,16 @@ import SearchBar from '@theme/SearchBar';
 import NavbarMobileSidebarToggle from '@theme/Navbar/MobileSidebar/Toggle';
 import NavbarLogo from '@theme/Navbar/Logo';
 import NavbarSearch from '@theme/Navbar/Search';
+import LanguageSwitcher from '@site/src/components/LanguageSwitcher';
+import { useTranslatedNavbarItems } from '@site/src/hooks/useTranslatedNavbarItems';
 
 import styles from './styles.module.css';
 
 function useNavbarItems() {
   // TODO temporary casting until ThemeConfig type is improved
-  return useThemeConfig().navbar.items as NavbarItemConfig[];
+  const allItems = useThemeConfig().navbar.items as NavbarItemConfig[];
+  const translatedItems = useTranslatedNavbarItems(allItems);
+  return translatedItems;
 }
 
 function NavbarItems({items}: {items: NavbarItemConfig[]}): ReactNode {
@@ -171,6 +175,7 @@ export default function NavbarContent(): ReactNode {
         // TODO stop hardcoding items?
         // Ask the user to add the respective navbar items => more flexible
         <>
+          <LanguageSwitcher />
           <NavbarItems items={rightItems} />
           <NavbarColorModeToggle className={styles.colorModeToggle} />
           {!searchBarItem && (

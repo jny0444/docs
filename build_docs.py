@@ -315,6 +315,10 @@ slug: {url_slug}
         """Generate a unified sidebars/main.ts with all doc sections."""
         categories = []
         for doc_config in self.config['docs']:
+            # Skip pre-generated docs (they have their own sidebar)
+            if doc_config.get('skipGeneration', False):
+                continue
+
             files = self._all_generated_files.get(doc_config['id'], [])
             if files:
                 category = self._generate_sidebar_category(doc_config, files)
@@ -340,8 +344,43 @@ export default sidebars;
         footer_config = self.config.get('footer', {})
         social_links = footer_config.get('socialLinks', {})
 
-        # Build plugins array (only Biel.ai widget, no multi-docs plugins)
+        # Build plugins array: Biel.ai + pre-generated docs plugins
         plugins = []
+
+        # Add plugins for pre-generated docs (e.g., translations)
+        for doc_config in self.config['docs']:
+            if doc_config.get('skipGeneration', False):
+                # Check if this is a unified translation (contains multiple sections)
+                if doc_config.get('isTranslation', False):
+                    # For unified translations, create a single plugin that serves all sections
+                    plugin_id = doc_config['id']
+                    plugin_path = doc_config['outputDir']
+                    sidebar_path = doc_config.get('sidebarPath', '')
+                    plugins.append(f"""[
+                                    "@docusaurus/plugin-content-docs",
+                                    {{
+                                        id: "{plugin_id}",
+                                        path: "{plugin_path}",
+                                        routeBasePath: "{doc_config['routeBasePath']}",
+                                        sidebarPath: "{sidebar_path}",
+                                    }},
+                                    ]""")
+                else:
+                    # For individual pre-generated docs
+                    plugin_id = doc_config['id']
+                    plugin_path = doc_config['outputDir']
+                    sidebar_path = doc_config.get('sidebarPath', '')
+                    plugins.append(f"""[
+                                    "@docusaurus/plugin-content-docs",
+                                    {{
+                                        id: "{plugin_id}",
+                                        path: "{plugin_path}",
+                                        routeBasePath: "{doc_config['routeBasePath']}",
+                                        sidebarPath: "{sidebar_path}",
+                                    }},
+                                    ]""")
+
+        # Add Biel.ai widget
         biel_config = self.config.get('biel', {})
         if biel_config.get('enable', True) and biel_config.get('project'):
             biel_opts = [
@@ -479,6 +518,7 @@ const config: Config = {{
   clientModules: [
     './src/clientModules/tocAutoScroll.js',
     './src/clientModules/askAiSelection.js',
+    './src/clientModules/uiTranslations.js',
   ],
 
   presets: [
@@ -643,9 +683,15 @@ export default config;
         all_warnings = []
         
         for doc_config in self.config['docs']:
-            source_path = self.root_dir / doc_config['source']
             doc_name = doc_config['navbarLabel']
-            
+
+            # Skip validation for pre-generated docs
+            if doc_config.get('skipGeneration', False):
+                print(f"  ⏭️  Skipping validation for {doc_name} (pre-generated)")
+                continue
+
+            source_path = self.root_dir / doc_config['source']
+
             if not source_path.exists():
                 all_errors.append(f"{doc_name}: Source file not found: {source_path}")
                 continue
@@ -712,6 +758,25 @@ export default config;
         for doc_config in self.config['docs']:
             print(f"\nProcessing: {doc_config['navbarLabel']}")
             print("-" * 40)
+
+            # Check if this doc should skip generation (e.g., pre-generated translations)
+            if doc_config.get('skipGeneration', False):
+                print(f"  ⏭️  Skipping generation (pre-generated files)")
+                if 'preGeneratedFiles' in doc_config:
+                    output_dir = self.website_dir / doc_config['outputDir']
+                    enriched_files = []
+                    for file_info in doc_config['preGeneratedFiles']:
+                        enriched = dict(file_info)
+                        md_file = output_dir / f"{file_info['doc_id']}.md"
+                        if md_file.exists():
+                            content = md_file.read_text(encoding='utf-8')
+                            slug_match = re.search(r'^slug:\s*(.+)$', content, re.MULTILINE)
+                            if slug_match:
+                                enriched['url_slug'] = slug_match.group(1).strip()
+                        enriched_files.append(enriched)
+                    self._all_generated_files[doc_config['id']] = enriched_files
+                    print(f"  ✅ Loaded {len(enriched_files)} pre-generated files")
+                continue
 
             # Read source file
             source_path = self.root_dir / doc_config['source']
